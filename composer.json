@@ -19,6 +19,6 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "iignatov/lightopenid": "1.2"
+        "lightopenid/lightopenid": "0.7.0"
     }
 }
