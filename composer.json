@@ -26,5 +26,5 @@
         "psr-4": {
             "Kilikili\\OAuth\\Client\\": "src/"
         }
-    },
+    }
 }
