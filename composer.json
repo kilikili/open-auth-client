@@ -18,8 +18,7 @@
         "authorisation"
     ],
     "require": {
-        "php": ">=5.2.0",
-		"firebase/php-jwt": "dev-master",
+        "php": ">=5.3.0",
         "lightopenid/lightopenid": "0.7.0"
     },
     "autoload": {
