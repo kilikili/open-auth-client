@@ -23,7 +23,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Kilikili\\OAuth\\Client\\": "src/"
+            "Kilikili\\Auth\\Client\\": "src/"
         }
     }
 }
