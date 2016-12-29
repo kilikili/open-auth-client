@@ -12,6 +12,8 @@ class ProviderEnabled
 	const PROVIDER_BAIDU = "Baidu";
 	const PROVIDER_DROPBOX = "Dropbox";
 	const PROVIDER_WEIBO = "Weibo";
+    const PROVIDER_FACEBOOK = "Facebook";
+    
 	public static $providerEnabled = array(
 			self::PROVIDER_GOOGLE,
 			self::PROVIDER_AMAZON,
@@ -21,5 +23,6 @@ class ProviderEnabled
 			self::PROVIDER_BAIDU,
 			self::PROVIDER_DROPBOX,
 			self::PROVIDER_WEIBO,
+            self::PROVIDER_FACEBOOK
 		);
 }
