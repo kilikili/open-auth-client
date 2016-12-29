@@ -30,19 +30,25 @@ abstract class AbstractProvider
 		return $this->customerRData;
 	}
 
-	protected function doHttpRequest($method, $apiUrl, $dataStr, $headers = array()){
+	protected function doHttpRequest($method, $apiUrl, $data, $headers = array()){
 		$curl 		= curl_init();
-
+		
+		$headers = array_merge($headers,array('Content-Type: application/x-www-form-urlencoded'));
 		//print_r($headers);
+		$dataStr = http_build_query($data);
 		if($method == "get"){
 			curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1);
 			curl_setopt($curl, CURLOPT_URL, $apiUrl);
 		}else{
+			//curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 			curl_setopt($curl, CURLOPT_URL, $apiUrl);
 			curl_setopt($curl, CURLOPT_POST, 1);
 			curl_setopt($curl, CURLOPT_POSTFIELDS, $dataStr);
 			//echo $dataStr;
 		}
+
+		//var_dump($dataStr);
+		//die();
 		//echo http_build_query($data);
 
 		curl_setopt($curl, CURLOPT_HTTPHEADER,	 $headers);
@@ -53,10 +59,10 @@ abstract class AbstractProvider
 		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($curl, CURLINFO_HEADER_OUT, true);
 		$rs = curl_exec($curl);
-		$headers = curl_getinfo($curl, CURLINFO_HEADER_OUT);
+		/*$headers = curl_getinfo($curl, CURLINFO_HEADER_OUT);
 		echo "<br><br>";
 		var_dump($headers);
-		echo "<br><br>";
+		echo "<br><br>";*/
 		curl_close($curl);
 		return $rs;
 	}
